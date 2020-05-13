@@ -26,5 +26,7 @@ For detailed explanation, visite [How To](https://github.com/rubenlagus/Telegram
 ```bash
 $ git clone https://github.com/viralvaghela/Telegram-Bot-Array-Index-Out-Of-Bound.git
 ```
+## Questions or Suggestions
+Feel free to create issues [here](https://github.com/viralvaghela/Telegram-Bot-Array-Index-Out-Of-Bound/issues) 
 ## <a href="https://telegram.me/arrayindexoutofboundbot">Try It</a>
 #### <a href="https://instagram.com/coding_boy_">Follow me on Instagram for daily coding posts</a> 
