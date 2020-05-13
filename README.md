@@ -1,5 +1,7 @@
 # Telegram Bot Array-Index-Out-Of-Bound
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5120b75584714d00b72f0934cce08d5b)](https://app.codacy.com/manual/viralvaghela/Telegram-Bot-Array-Index-Out-Of-Bound?utm_source=github.com&utm_medium=referral&utm_content=viralvaghela/Telegram-Bot-Array-Index-Out-Of-Bound&utm_campaign=Badge_Grade_Dashboard)
+
 This Bot will show you Programming quotes,jokes,random jokes and Covid19 live global data.
 
 ## Technology used : Java Spring Boot
