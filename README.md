@@ -22,7 +22,7 @@ set token inside MyBot.java
             return "BOT TOKEN"; 
         }
 ```
-
+For detailed explanation, visite [How To](https://github.com/rubenlagus/TelegramBots/wiki/Getting-Started) 
 ```bash
 $ git clone https://github.com/viralvaghela/Telegram-Bot-Array-Index-Out-Of-Bound.git
 ```
