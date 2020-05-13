@@ -12,7 +12,17 @@ https://official-joke-api.appspot.com/jokes/random
 <img src="./screenshots/2.png" alt="drawing" width="200">
 <img src="./screenshots/4.png" alt="drawing" width="200">
 
+
 ## Usage
+Search bot father in telegram and create your bot and get a BOT TOKEN.
+set token inside MyBot.java 
+```java
+     @Override
+        public String getBotToken() {
+            return "BOT TOKEN"; 
+        }
+```
+
 ```bash
 $ git clone https://github.com/viralvaghela/Telegram-Bot-Array-Index-Out-Of-Bound.git
 ```
