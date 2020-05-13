@@ -28,6 +28,6 @@ $ git clone https://github.com/viralvaghela/Telegram-Bot-Array-Index-Out-Of-Boun
 ```
 ## Questions or Suggestions
 Feel free to create issues [here](https://github.com/viralvaghela/Telegram-Bot-Array-Index-Out-Of-Bound/issues) 
+## [Try it](https://telegram.me/arrayindexoutofbound)
+## [Follow me on Instagram for daily coding posts](https://instagram.com/coding_boy_)
 
-## [Try it] (https://telegram.me/arrayindexoutofboundbot) 
-## [Follow me on Instagram ] (https://instagram.com/coding_boy_) 
