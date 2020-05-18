@@ -45,7 +45,7 @@ public class MyBot extends TelegramLongPollingBot {
                 e.printStackTrace();
             }
         }
-       else if (update.getMessage().getText().equals("/programmingjoke") )
+       else if (update.getMessage().getText().equals("/programmingjoke") || update.getMessage().getText().equals("/programmingjoke@arrayindexoutofboundbot")  )
         {
             try
             {
@@ -69,7 +69,7 @@ public class MyBot extends TelegramLongPollingBot {
             catch (Exception e){ e.printStackTrace();}
         }
 
-        else if (update.getMessage().getText().equals("/joke"))
+        else if (update.getMessage().getText().equals("/joke") || update.getMessage().getText().equals("/joke@arrayindexoutofboundbot"))
         {
             try
             {
@@ -91,7 +91,7 @@ public class MyBot extends TelegramLongPollingBot {
             }
             catch (Exception e){ e.printStackTrace();}
         }
-        else if (update.getMessage().getText().equals("/quote"))
+        else if (update.getMessage().getText().equals("/quote") || update.getMessage().getText().equals("/quote@arrayindexoutofboundbot"))
         {
             try
             {
@@ -115,7 +115,7 @@ public class MyBot extends TelegramLongPollingBot {
         }
 
 
-        //This Command is not working,i will fix it soon :)
+        //This Command is NOT WORKING ,i will fix it soon :)
         else if(update.getMessage().getText().equals("/covid")) {
             try {
                 okHttpClient = new OkHttpClient();
@@ -147,15 +147,12 @@ public class MyBot extends TelegramLongPollingBot {
                     } catch (TelegramApiException e) {
                         e.printStackTrace();
                     }
-
-                    //System.out.println();
-
+                    //System.out.println(); 
                 });
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        //if user send any random string then print welcome message
         else
         {
             sendMessage.setText("Hii "+ update.getMessage().getFrom().getUserName() + " \uD83D\uDE4B\u200D♂️,\n\n" +welcomemessage);
@@ -178,6 +175,6 @@ public class MyBot extends TelegramLongPollingBot {
     }
     @Override
     public String getBotToken() {
-        return "BOT TOKEN"; 
+        return "YOUR TOKEN";
     }
 }
