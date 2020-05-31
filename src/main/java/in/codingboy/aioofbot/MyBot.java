@@ -116,39 +116,29 @@ public class MyBot extends TelegramLongPollingBot {
 
 
         //This Command is NOT WORKING ,i will fix it soon :)
-        else if(update.getMessage().getText().equals("/covid")) {
+        else if(update.getMessage().getText().equals("/covid") || update.getMessage().getText().equals("/covid@arrayindexoutofboundbot"))
+        {
             try {
                 okHttpClient = new OkHttpClient();
                 request = new Request.Builder()
-                        .url("https://api.thevirustracker.com/free-api?countryTotals=ALL")
+                        .url("https://disease.sh/v2/all")
                         .get()
                         .build();
-                response = okHttpClient.newCall(request).execute();
+                Response response = okHttpClient.newCall(request).execute();
                 String data = response.body().string();
-                JSONObject jsonObject = (JSONObject) parser.parse(data);
-                //System.out.println(jsonObject.get("countryitems"));
+                JSONParser jsonParser=new JSONParser();
+                JSONObject jsonObject = (JSONObject)jsonParser.parse(data);
 
-                JSONArray jsonArray = (JSONArray) jsonObject.get("countryitems");
-                JSONObject obj = new JSONObject( (JSONObject) jsonArray.get(0));
+                sendMessage.setText("Total cases : "+jsonObject.get("cases")+
+                                    "\nRecovered : "+jsonObject.get("recovered")+
+                                    "\nCritical : "+jsonObject.get("critical")+
+                                    "\nActive : "+jsonObject.get("active")+
+                                    "\nToday Cases : "+jsonObject.get("todayCases")+
+                                    "\nTotal Deaths : "+jsonObject.get("deaths")+
+                                    "\nToday Deaths : "+jsonObject.get("todayDeaths"));
+                sendMessage.setChatId(update.getMessage().getChatId());
+                execute(sendMessage);
 
-                //iterator to get All Countries  data
-
-                  obj.keySet().parallelStream().forEach(key -> {
-                    JSONObject o = (JSONObject)obj.get(key);
-                    String  country = String.valueOf( o.get("title").toString());
-                    String total_cases =String.valueOf(o.get("total_cases").toString());
-                    String total_recovered = String.valueOf(o.get("total_recovered").toString());
-                    String  total_deaths = String.valueOf(o.get("total_deaths").toString());
-                   // sendCoronaDataNumbers=sendCoronaDataNumbers+country;
-                    sendMessage.setChatId(update.getMessage().getChatId());
-                    sendMessage.setText(country+total_cases+total_deaths+total_recovered);
-                    try {
-                        execute(sendMessage);
-                    } catch (TelegramApiException e) {
-                        e.printStackTrace();
-                    }
-                    //System.out.println(); 
-                });
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -175,6 +165,6 @@ public class MyBot extends TelegramLongPollingBot {
     }
     @Override
     public String getBotToken() {
-        return "YOUR TOKEN";
+        return "1194958017:AAEryxj9Vi5VQdsFo7_2EG8KsSGkG5MPro4";
     }
 }
