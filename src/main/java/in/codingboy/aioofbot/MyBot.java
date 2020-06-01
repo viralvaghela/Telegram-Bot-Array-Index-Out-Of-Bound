@@ -28,7 +28,8 @@ public class MyBot extends TelegramLongPollingBot {
             "List of commands.\n\n" +
             "/programmingjoke - Programming Joke\n" +
             "/joke - Random Joke\n" +
-            "/quote - Programming Quote\n\n" +
+            "/quote - Programming Quote\n\n"+
+            "/covid\n\n"+
             "Developer @viralvaghela";
     JSONParser parser =  new JSONParser();
     @Override
