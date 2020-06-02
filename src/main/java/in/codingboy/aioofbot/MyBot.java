@@ -282,7 +282,7 @@ public class MyBot extends TelegramLongPollingBot {
         {
             try {
                 sendMessage.setChatId(update.getMessage().getChatId());
-                sendMessage.setText("Like our page Facebook page");
+                sendMessage.setText("Like our Facebook page");
                 execute(sendMessage);
                 sendMessage.setText("\n https://www.facebook.com/thecodingboy");
                 execute(sendMessage);
@@ -312,7 +312,7 @@ public class MyBot extends TelegramLongPollingBot {
         {
             try {
                 sendMessage.setChatId(update.getMessage().getChatId());
-                sendMessage.setText("Follow us On Instagram");
+                sendMessage.setText("Blog : ");
                 execute(sendMessage);
                 sendMessage.setText("\n https://codingboy.in");
                 execute(sendMessage);
@@ -327,7 +327,7 @@ public class MyBot extends TelegramLongPollingBot {
         {
             try {
                 sendMessage.setChatId(update.getMessage().getChatId());
-                sendMessage.setText("Follow us On Instagram");
+                sendMessage.setText("Source code of this bot");
                 execute(sendMessage);
                 sendMessage.setText("\n https://github.com/viralvaghela/Telegram-Bot-Array-Index-Out-Of-Bound");
                 execute(sendMessage);
