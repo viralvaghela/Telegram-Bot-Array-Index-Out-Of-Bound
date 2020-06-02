@@ -8,6 +8,10 @@ import org.json.simple.parser.JSONParser;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.util.ArrayList;
@@ -18,26 +22,55 @@ public class MyBot extends TelegramLongPollingBot {
     Request request;
     Response response=null;
     JSONObject jsonObject;
-    String sendCoronaDataTitle = "Country|total_cases|total_recovered|total_deaths\n";
+
     String sendCoronaDataNumbers="";
     static String welcomemessage =
             "Thank you for using ArrayIndexOutOfBound Bot \uD83D\uDE09.\n\n" +
-            "This bot will show you Programming quotes,jokes,random\n" +
+            "This bot will show you Programming quotes,Programming jokes,random\n" +
             "jokes and Covid19 Global data,more features are coming soon \uD83D\uDD25.\n" +
-            "\n" +
-            "List of commands.\n\n" +
-            "/programmingjoke - Programming Joke\n" +
-            "/joke - Random Joke\n" +
-            "/quote - Programming Quote\n\n"+
-            "/covid\n\n"+
-            "Developer @viralvaghela";
+            "\n\n" +
+            "Developer \uD83D\uDC68\u200D\uD83D\uDCBB : https://instagram.com/coding_boy_";
     JSONParser parser =  new JSONParser();
     @Override
     public void onUpdateReceived(Update update) {
         SendMessage sendMessage = new SendMessage();
 
-        if(update.getMessage().getText().equals("/start"))
+        if(update.getMessage().getText().equals("/start") || update.getMessage().getText().equals("Back") || update.getMessage().getText().equals("/start@arrayindexoutofboundbot"))
         {
+            ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
+            List <KeyboardRow> keyboardRowList = new ArrayList<>();
+            KeyboardRow row;
+
+            row=new KeyboardRow();
+            row.add("Programming joke \uD83D\uDE01");
+            keyboardRowList.add(row);
+
+            row=new KeyboardRow();
+            row.add("Joke");
+            keyboardRowList.add(row);
+
+            row=new KeyboardRow();
+            row.add("Quote");
+            keyboardRowList.add(row);
+
+            row=new KeyboardRow();
+            row.add("COVID \uD83E\uDDA0 GLOBAL DATA \uD83D\uDCCA");
+            keyboardRowList.add(row);
+
+            row=new KeyboardRow();
+            row.add("Unlimited Courses");
+            keyboardRowList.add(row);
+
+            row=new KeyboardRow();
+            row.add("CS & Programming Books \uD83D\uDCDA");
+            keyboardRowList.add(row);
+
+            row=new KeyboardRow();
+            row.add("About Us");
+            keyboardRowList.add(row);
+
+            replyKeyboardMarkup.setKeyboard(keyboardRowList);
+            sendMessage.setReplyMarkup(replyKeyboardMarkup);
             sendMessage.setText("Hii "+ update.getMessage().getFrom().getUserName() + " \uD83D\uDE4B\u200D♂️,\n\n" +welcomemessage);
             try {
                 sendMessage.setChatId(update.getMessage().getChatId());
@@ -46,7 +79,7 @@ public class MyBot extends TelegramLongPollingBot {
                 e.printStackTrace();
             }
         }
-       else if (update.getMessage().getText().equals("/programmingjoke") || update.getMessage().getText().equals("/programmingjoke@arrayindexoutofboundbot")  )
+       else if (update.getMessage().getText().equals("Programming joke \uD83D\uDE01"))
         {
             try
             {
@@ -70,7 +103,7 @@ public class MyBot extends TelegramLongPollingBot {
             catch (Exception e){ e.printStackTrace();}
         }
 
-        else if (update.getMessage().getText().equals("/joke") || update.getMessage().getText().equals("/joke@arrayindexoutofboundbot"))
+        else if (update.getMessage().getText().equals("Joke") )
         {
             try
             {
@@ -92,7 +125,7 @@ public class MyBot extends TelegramLongPollingBot {
             }
             catch (Exception e){ e.printStackTrace();}
         }
-        else if (update.getMessage().getText().equals("/quote") || update.getMessage().getText().equals("/quote@arrayindexoutofboundbot"))
+        else if (update.getMessage().getText().equals("Quote"))
         {
             try
             {
@@ -115,9 +148,7 @@ public class MyBot extends TelegramLongPollingBot {
             catch (Exception e){ e.printStackTrace();}
         }
 
-
-        //This Command is NOT WORKING ,i will fix it soon :)
-        else if(update.getMessage().getText().equals("/covid") || update.getMessage().getText().equals("/covid@arrayindexoutofboundbot"))
+        else if(update.getMessage().getText().equals("COVID \uD83E\uDDA0 GLOBAL DATA \uD83D\uDCCA"))
         {
             try {
                 okHttpClient = new OkHttpClient();
@@ -144,6 +175,169 @@ public class MyBot extends TelegramLongPollingBot {
                 e.printStackTrace();
             }
         }
+
+        else if (update.getMessage().getText().equals("Unlimited Courses"))
+        {
+            try
+            {
+                sendMessage.setChatId(update.getMessage().getChatId());
+                sendMessage.setText("Get Unlimited Courses including SEO Course, Linux, some programming languages courses.\n" +
+                        "Happy Learning!\n" +
+                        "https://drive.google.com/drive/folders/0B3Qd1rlyIyR5TGlyYmlsSHBlcVU?usp=sharing\n");
+                execute(sendMessage);
+            }
+            catch (Exception e){ e.printStackTrace();}
+        }
+
+        else if (update.getMessage().getText().equals("CS & Programming Books \uD83D\uDCDA"))
+        {
+            try
+            {
+                sendMessage.setChatId(update.getMessage().getChatId());
+                sendMessage.setText("500+ Free Computer Science and Programming Books \n\n " +
+                        "https://drive.google.com/drive/folders/0B9XbEQh3jB9pWVBFX0hqTzA0dUU");
+                execute(sendMessage);
+            }
+            catch (Exception e){ e.printStackTrace();}
+        }
+
+        else if (update.getMessage().getText().equals("About Us"))
+        {
+            ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
+            List <KeyboardRow> keyboardRowList = new ArrayList<>();
+            KeyboardRow row;
+
+            row=new KeyboardRow();
+            row.add("Instagram");
+            row.add("Twitter");
+            keyboardRowList.add(row);
+
+            row=new KeyboardRow();
+            row.add("Facebook");
+            row.add("Youtube");
+            keyboardRowList.add(row);
+
+            row=new KeyboardRow();
+            row.add("Our Blog");
+            keyboardRowList.add(row);
+
+            row=new KeyboardRow();
+            row.add("Source Code of this Bot");
+            keyboardRowList.add(row);
+
+            row=new KeyboardRow();
+            row.add("Back");
+            keyboardRowList.add(row);
+
+            replyKeyboardMarkup.setKeyboard(keyboardRowList);
+            sendMessage.setReplyMarkup(replyKeyboardMarkup);
+
+            try
+            {
+                sendMessage.setChatId(update.getMessage().getChatId());
+                sendMessage.setText(update.getMessage().getFrom().getFirstName()+",Array Index Out Of Bound (AiooB) is Telegram Bot developed by " +
+                        "https://instagram.com/coding_boy_, 50K+ programmers community on the instagram" +
+                        "and we are providing daily useful Programming,Java,android development,tips-tricks ,projects and tech content." +
+                        "\n\n");
+                execute(sendMessage);
+
+            }
+            catch (Exception e){ e.printStackTrace();}
+        }
+
+
+        //All Social media and Contact Links
+
+        else if(update.getMessage().getText().equals("Instagram"))
+        {
+            try {
+                sendMessage.setChatId(update.getMessage().getChatId());
+                sendMessage.setText("Follow us On Instagram");
+                execute(sendMessage);
+                sendMessage.setText("\n https://instagram.com/coding_boy_");
+                execute(sendMessage);
+
+            }
+            catch (TelegramApiException e) {
+                e.printStackTrace();
+            }
+        }
+
+        else if(update.getMessage().getText().equals("Twitter"))
+        {
+            try {
+                sendMessage.setChatId(update.getMessage().getChatId());
+                sendMessage.setText("Follow us On Twitter");
+                execute(sendMessage);
+                sendMessage.setText("\n https://twitter.com/MrCodingBoy");
+                execute(sendMessage);
+
+            }
+            catch (TelegramApiException e) {
+                e.printStackTrace();
+            }
+        }
+
+        else if(update.getMessage().getText().equals("Facebook"))
+        {
+            try {
+                sendMessage.setChatId(update.getMessage().getChatId());
+                sendMessage.setText("Like our page Facebook page");
+                execute(sendMessage);
+                sendMessage.setText("\n https://www.facebook.com/thecodingboy");
+                execute(sendMessage);
+
+            }
+            catch (TelegramApiException e) {
+                e.printStackTrace();
+            }
+        }
+
+        else if(update.getMessage().getText().equals("Youtube"))
+        {
+            try {
+                sendMessage.setChatId(update.getMessage().getChatId());
+                sendMessage.setText("Subscribe to our Youtube Channel");
+                execute(sendMessage);
+                sendMessage.setText("\n https://www.youtube.com/channel/UCcS31rdaPf42mS7B12VVfhw?view_as=subscriber");
+                execute(sendMessage);
+
+            }
+            catch (TelegramApiException e) {
+                e.printStackTrace();
+            }
+        }
+
+        else if(update.getMessage().getText().equals("Our Blog"))
+        {
+            try {
+                sendMessage.setChatId(update.getMessage().getChatId());
+                sendMessage.setText("Follow us On Instagram");
+                execute(sendMessage);
+                sendMessage.setText("\n https://codingboy.in");
+                execute(sendMessage);
+
+            }
+            catch (TelegramApiException e) {
+                e.printStackTrace();
+            }
+        }
+
+        else if(update.getMessage().getText().equals("Source Code of this Bot"))
+        {
+            try {
+                sendMessage.setChatId(update.getMessage().getChatId());
+                sendMessage.setText("Follow us On Instagram");
+                execute(sendMessage);
+                sendMessage.setText("\n https://github.com/viralvaghela/Telegram-Bot-Array-Index-Out-Of-Bound");
+                execute(sendMessage);
+
+            }
+            catch (TelegramApiException e) {
+                e.printStackTrace();
+            }
+        }
+
         else
         {
             sendMessage.setText("Hii "+ update.getMessage().getFrom().getUserName() + " \uD83D\uDE4B\u200D♂️,\n\n" +welcomemessage);
@@ -166,6 +360,6 @@ public class MyBot extends TelegramLongPollingBot {
     }
     @Override
     public String getBotToken() {
-        return "BOT TOKEN";//generate yout token from Bot Father
+        return "1194958017:AAEryxj9Vi5VQdsFo7_2EG8KsSGkG5MPro4";
     }
 }
