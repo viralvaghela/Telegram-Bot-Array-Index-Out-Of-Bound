@@ -130,7 +130,7 @@ public class MyBot extends TelegramLongPollingBot {
                 JSONParser jsonParser=new JSONParser();
                 JSONObject jsonObject = (JSONObject)jsonParser.parse(data);
 
-                sendMessage.setText("Total cases : "+jsonObject.get("cases")+
+                sendMessage.setText("COVID 19 GLOBAL DATA\n\nTotal cases : "+jsonObject.get("cases")+
                                     "\nRecovered : "+jsonObject.get("recovered")+
                                     "\nCritical : "+jsonObject.get("critical")+
                                     "\nActive : "+jsonObject.get("active")+
