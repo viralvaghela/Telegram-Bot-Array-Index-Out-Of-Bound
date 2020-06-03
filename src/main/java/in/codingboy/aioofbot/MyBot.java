@@ -71,7 +71,7 @@ public class MyBot extends TelegramLongPollingBot {
 
             replyKeyboardMarkup.setKeyboard(keyboardRowList);
             sendMessage.setReplyMarkup(replyKeyboardMarkup);
-            sendMessage.setText("Hii "+ update.getMessage().getFrom().getUserName() + " \uD83D\uDE4B\u200D♂️,\n\n" +welcomemessage);
+            sendMessage.setText("Hii "+ update.getMessage().getFrom().getFirstName() + " \uD83D\uDE4B\u200D♂️,\n\n" +welcomemessage);
             try {
                 sendMessage.setChatId(update.getMessage().getChatId());
                 execute(sendMessage);
@@ -235,7 +235,7 @@ public class MyBot extends TelegramLongPollingBot {
             try
             {
                 sendMessage.setChatId(update.getMessage().getChatId());
-                sendMessage.setText(update.getMessage().getFrom().getFirstName()+",Array Index Out Of Bound (AiooB) is Telegram Bot developed by " +
+                sendMessage.setText("Hello "+update.getMessage().getFrom().getFirstName()+" ,Array Index Out Of Bound (AiooB) is Telegram Bot developed by " +
                         "https://instagram.com/coding_boy_, 50K+ programmers community on the instagram" +
                         "and we are providing daily useful Programming,Java,android development,tips-tricks ,projects and tech content." +
                         "\n\n");
@@ -340,7 +340,7 @@ public class MyBot extends TelegramLongPollingBot {
 
         else
         {
-            sendMessage.setText("Hii "+ update.getMessage().getFrom().getUserName() + " \uD83D\uDE4B\u200D♂️,\n\n" +welcomemessage);
+            sendMessage.setText("Hii "+ update.getMessage().getFrom().getFirstName() + " \uD83D\uDE4B\u200D♂️,\n\n" +welcomemessage);
             try {
                 sendMessage.setChatId(update.getMessage().getChatId());
                 execute(sendMessage);
@@ -360,6 +360,6 @@ public class MyBot extends TelegramLongPollingBot {
     }
     @Override
     public String getBotToken() {
-        return "TOKEN";
+        return "1194958017:AAEryxj9Vi5VQdsFo7_2EG8KsSGkG5MPro4";
     }
 }
